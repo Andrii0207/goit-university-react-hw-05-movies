@@ -1,6 +1,6 @@
-import MovieCard from 'components/MovieCard/MovieCard';
 import { useEffect, useState } from 'react';
-import favoritesMovieList from 'service/api';
+import { Link } from 'react-router-dom';
+import { favoritesMovieList } from 'service/api';
 
 export default function Home() {
   const [movies, setMovies] = useState(null);
@@ -15,7 +15,7 @@ export default function Home() {
         {movies &&
           movies.map(({ id, title }) => (
             <li key={id}>
-              <MovieCard title={title} />
+              <Link to={`movies/${id}`}>{title}</Link>
             </li>
           ))}
       </ul>

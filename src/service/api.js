@@ -13,10 +13,14 @@ const instance = axios.create({
 });
 
 
-export default async function favoritesMovieList() {
+export async function favoritesMovieList() {
 
     const responce = await instance.get("trending/movie/day")
-    console.log("responce >>>", responce)
+    // console.log("responce >>>", responce)
     return responce;
 }
 
+export async function getMoviesById(id) {
+    const movie = await instance.get(`movie/${id}`)
+    return movie;
+}
