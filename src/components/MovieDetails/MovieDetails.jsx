@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { IoArrowBack } from 'react-icons/io5';
 import { getMoviesById, releaseDateUpdate, DEFAULT_IMAGE_PATH } from 'service';
 import { genresUpdate } from '../../service';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     getMoviesById(id).then(({ data }) => setMovie(data));
@@ -20,6 +22,10 @@ export default function MovieDetails() {
 
   return (
     <div>
+      <Link to={location.state?.from ?? '/movies'}>
+        <IoArrowBack />
+        go back
+      </Link>
       <div>
         <img
           src={`${DEFAULT_IMAGE_PATH}${backdrop_path}`}
@@ -45,10 +51,14 @@ export default function MovieDetails() {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: location.state?.from }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: location.state?.from }}>
+              Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />

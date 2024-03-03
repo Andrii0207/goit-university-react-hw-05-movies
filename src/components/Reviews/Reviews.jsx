@@ -12,7 +12,6 @@ export default function Reviews() {
   }, [id]);
 
   if (!review) return;
-  console.log('Reviews >>>', review);
 
   return (
     <ul>

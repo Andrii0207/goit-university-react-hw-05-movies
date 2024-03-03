@@ -1,10 +1,14 @@
+import Notiflix from 'notiflix';
+
 export default function SearchForm({ onHandleSubmit }) {
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
 
     if (!e.target.query.value) {
-      return alert('Please, enter movie name');
+      return Notiflix.Notify.info('Please, enter movie name', {
+        timeout: 3000,
+      });
     }
 
     onHandleSubmit(e.target.query.value);
