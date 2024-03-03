@@ -4,7 +4,7 @@ import NotFound from './NotFound/NotFound.styled';
 import Home from 'pages/Home/Home';
 import Movies from 'pages/Movies/Movies';
 import SharedLayout from './SharedLayout/SharedLayout';
-import MovieDetails from './Card/MovieDetails';
+import MovieDetails from './MovieDetails/MovieDetails';
 import Reviews from './Reviews/Reviews';
 import Cast from './Cast/Cast';
 

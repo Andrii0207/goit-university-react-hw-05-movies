@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
-import { getMoviesById, releaseDateUpdate } from 'service';
+import { getMoviesById, releaseDateUpdate, DEFAULT_IMAGE_PATH } from 'service';
 import { genresUpdate } from '../../service';
 
 export default function MovieDetails() {
@@ -11,18 +11,20 @@ export default function MovieDetails() {
     getMoviesById(id).then(({ data }) => setMovie(data));
   }, [id]);
 
-  console.log(movie);
-
   if (!movie) {
     return;
   }
 
-  const { original_title, release_date, overview, genres } = movie;
+  const { backdrop_path, original_title, release_date, overview, genres } =
+    movie;
 
   return (
     <div>
       <div>
-        <img src="" alt="" />
+        <img
+          src={`${DEFAULT_IMAGE_PATH}${backdrop_path}`}
+          alt={original_title}
+        />
       </div>
 
       <div>
