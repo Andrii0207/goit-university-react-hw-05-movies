@@ -1,8 +1,10 @@
 import Loader from 'components/Loader/Loader';
+import MovieList from 'components/MovieList/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'service';
+import { Wrapper } from './Movies.styled';
 
 export default function Movies() {
   const [movies, setMovies] = useState(null);
@@ -31,18 +33,11 @@ export default function Movies() {
   return (
     <>
       <SearchForm onHandleSubmit={onHandleSearchMovie} />
+      <Wrapper>
+        <MovieList movies={movies} location={location} />
+      </Wrapper>
       {loading && <Loader />}
       {error && <h2>{error}</h2>}
-
-      <ul>
-        {movies.map(({ id, original_title }) => (
-          <li key={id}>
-            <Link to={`${id}`} state={{ from: location }}>
-              {original_title}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </>
   );
 }

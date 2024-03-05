@@ -1,4 +1,6 @@
 import Notiflix from 'notiflix';
+import { FormStyled, Input } from './SearchForm.styled';
+import { IoSearch } from 'react-icons/io5';
 
 export default function SearchForm({ onHandleSubmit }) {
   function handleSubmit(e) {
@@ -16,9 +18,11 @@ export default function SearchForm({ onHandleSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="query" />
-      <button type="submit">Search</button>
-    </form>
+    <FormStyled onSubmit={handleSubmit}>
+      <Input type="text" name="query" placeholder="enter movie name" />
+      <button type="submit">
+        <IoSearch />
+      </button>
+    </FormStyled>
   );
 }

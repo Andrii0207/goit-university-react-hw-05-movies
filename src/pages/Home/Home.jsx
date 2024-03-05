@@ -1,7 +1,9 @@
 import Loader from 'components/Loader/Loader';
+import MovieList from 'components/MovieList/MovieList';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { favoritesMovieList } from 'service/api';
+import { MovieListContainer, PageName, Section } from './Home.styled';
 
 export default function Home() {
   const [movies, setMovies] = useState(null);
@@ -15,28 +17,17 @@ export default function Home() {
     favoritesMovieList()
       .then(({ data: { results } }) => setMovies(results))
       .catch(error => setError(error.message))
-      .finally(
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000)
-      );
+      .finally(setLoading(false));
   }, []);
 
   return (
-    <section>
-      <h2>Trending today</h2>
-      <ul>
-        {movies &&
-          movies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`movies/${id}`} state={{ from: location }}>
-                {title}
-              </Link>
-            </li>
-          ))}
-        {loading && <Loader />}
-        {error && <h2>{error}</h2>}
-      </ul>
-    </section>
+    <Section>
+      <PageName>Trending today</PageName>
+      <MovieListContainer>
+        {movies && <MovieList movies={movies} location={location} />}
+      </MovieListContainer>
+      {loading && <Loader />}
+      {error && <h2>{error}</h2>}
+    </Section>
   );
 }

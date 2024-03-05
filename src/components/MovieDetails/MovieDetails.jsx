@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { getMoviesById, releaseDateUpdate, DEFAULT_IMAGE_PATH } from 'service';
 import { genresUpdate } from '../../service';
+import { CardWrapper } from './MovieDetails.styled';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -21,7 +22,7 @@ export default function MovieDetails() {
     movie;
 
   return (
-    <div>
+    <CardWrapper>
       <Link to={location.state?.from ?? '/movies'}>
         <IoArrowBack />
         go back
@@ -63,6 +64,6 @@ export default function MovieDetails() {
         </ul>
         <Outlet />
       </div>
-    </div>
+    </CardWrapper>
   );
 }

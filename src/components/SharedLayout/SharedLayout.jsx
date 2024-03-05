@@ -1,16 +1,24 @@
-import { Outlet } from 'react-router-dom';
-import { StyledLink } from './SharedLayout.styled';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Header, NavBar, StyledLink, Wrapper } from './SharedLayout.styled';
+import { RxHome } from 'react-icons/rx';
+import { BiCameraMovie } from 'react-icons/bi';
 
 export default function SharedLayout() {
   return (
-    <div>
-      <header>
+    <Wrapper>
+      <Header>
         <nav>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          <StyledLink to="/">
+            <RxHome />
+            Home
+          </StyledLink>
+          <StyledLink to="/movies">
+            Movies
+            <BiCameraMovie />
+          </StyledLink>
         </nav>
-      </header>
+      </Header>
       <Outlet />
-    </div>
+    </Wrapper>
   );
 }
