@@ -1,5 +1,5 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import { Header, NavBar, StyledLink, Wrapper } from './SharedLayout.styled';
+import { Outlet } from 'react-router-dom';
+import { Header, StyledLink, Wrapper } from './SharedLayout.styled';
 import { RxHome } from 'react-icons/rx';
 import { BiCameraMovie } from 'react-icons/bi';
 

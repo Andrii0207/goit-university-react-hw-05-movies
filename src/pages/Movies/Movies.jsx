@@ -2,7 +2,7 @@ import Loader from 'components/Loader/Loader';
 import MovieList from 'components/MovieList/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'service';
 import { Wrapper } from './Movies.styled';
 
