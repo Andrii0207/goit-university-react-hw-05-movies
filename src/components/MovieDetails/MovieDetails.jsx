@@ -3,7 +3,8 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { getMoviesById, releaseDateUpdate, DEFAULT_IMAGE_PATH } from 'service';
 import { genresUpdate } from '../../service';
-import { CardWrapper } from './MovieDetails.styled';
+import defaultImage from '../../service/defaultImage.jpeg';
+import { CardWrapper, Img, StyledLink, Wrapper } from './MovieDetails.styled';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -23,13 +24,15 @@ export default function MovieDetails() {
 
   return (
     <CardWrapper>
-      <Link to={location.state?.from ?? '/movies'}>
+      <StyledLink to={location.state?.from ?? '/movies'}>
         <IoArrowBack />
         go back
-      </Link>
+      </StyledLink>
       <div>
-        <img
-          src={`${DEFAULT_IMAGE_PATH}${backdrop_path}`}
+        <Img
+          src={
+            backdrop_path ? DEFAULT_IMAGE_PATH + backdrop_path : defaultImage
+          }
           alt={original_title}
         />
       </div>
@@ -42,26 +45,26 @@ export default function MovieDetails() {
           </b>
         </p>
         <p>
-          <b>Overview</b> {overview}
+          <b>Overview:</b> {overview}
         </p>
         <p>
-          <b>Genres</b> {genresUpdate(genres)}
+          <b>Genres:</b> {genresUpdate(genres)}
         </p>
       </div>
       <div>
         <h3>Additional information</h3>
-        <ul>
+        <Wrapper>
           <li>
             <Link to="cast" state={{ from: location.state?.from }}>
-              Cast
+              <b>Cast</b>
             </Link>
           </li>
           <li>
             <Link to="reviews" state={{ from: location.state?.from }}>
-              Reviews
+              <b>Reviews</b>
             </Link>
           </li>
-        </ul>
+        </Wrapper>
         <Outlet />
       </div>
     </CardWrapper>

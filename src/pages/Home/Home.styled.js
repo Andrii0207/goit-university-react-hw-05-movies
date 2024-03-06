@@ -15,8 +15,9 @@ export const PageName = styled.h2`
 text-align: center;
 margin-top: 23px;
 margin-bottom: 23px;
-font-size: 25px;
-color: whitesmoke;
+font-size: 28px;
+color: darkorange;
+font-weight: 500;
 `
 
 export const MovieListContainer = styled.ul`

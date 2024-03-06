@@ -6,13 +6,18 @@ justify-content: center;
 gap: 10px;
 height: 35px;
 background: transparent;
-padding-top: 20px;
-padding-bottom: 20px;
+padding-top: 23px;
+padding-bottom: 23px;
 
 & svg {
 fill: whitesmoke;
 width: 20px;
 height: 20px;
+
+& :hover + input,
+& :focus + input {
+border-color: orange;
+}
 }
 `
 
@@ -20,10 +25,16 @@ export const Input = styled.input`
 border-radius: 10px;
 border-style: none;
 border-color: whitesmoke;
+outline-color: orange;
 border: 2px solid whitesmoke;
 width: 250px;
 background-color: transparent;
-padding-left: 7px;
+padding-left: 12px;
 color: whitesmoke;
 font-size: 20px;
+
+& :hover,
+& :focus {
+border-color: orange;
+}
 `

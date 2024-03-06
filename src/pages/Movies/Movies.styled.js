@@ -7,4 +7,5 @@ height: 100%;
 display: flex;
 flex-wrap: wrap;
   grid-gap: 20px;
+
 `

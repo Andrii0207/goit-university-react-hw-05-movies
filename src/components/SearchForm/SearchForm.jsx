@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+import PropTypes from 'prop-types';
 import { FormStyled, Input } from './SearchForm.styled';
 import { IoSearch } from 'react-icons/io5';
 
@@ -26,3 +27,7 @@ export default function SearchForm({ onHandleSubmit }) {
     </FormStyled>
   );
 }
+
+SearchForm.propTypes = {
+  onHandleSubmit: PropTypes.func.isRequired,
+};

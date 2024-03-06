@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
 background-color: #375694;
+padding-bottom: 50px;
+min-height: 100vh;
+height: 100%;
 `
 
 export const Header = styled.header`
@@ -18,9 +21,9 @@ export const Header = styled.header`
 `
 
 export const NavBar = styled.nav`
-padding-top: 20px;
+  padding-top: 20px;
   padding-bottom: 20px;
-background-color: transparent;
+  background-color: transparent;
 `
 
 export const StyledLink = styled(NavLink)`

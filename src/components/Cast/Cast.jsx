@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DEFAULT_IMAGE_PATH, getMovieCast } from 'service';
+import defaultImage from '../../service/defaultImage.jpeg';
+import { Img } from './Cast.styled';
 
 export default function Cast() {
   const [cast, setCast] = useState(null);
@@ -13,14 +15,14 @@ export default function Cast() {
 
   if (!cast) return;
 
-  console.log('Cast >>>', cast);
-
   return (
     <ul>
       {cast.map(({ id, name, character, profile_path }) => (
         <li key={id}>
-          <img
-            src={`${DEFAULT_IMAGE_PATH}${profile_path}`}
+          <Img
+            src={
+              profile_path ? DEFAULT_IMAGE_PATH + profile_path : defaultImage
+            }
             alt={name}
             width="100"
           />

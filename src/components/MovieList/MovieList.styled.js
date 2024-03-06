@@ -11,11 +11,12 @@ background: #fff;
   box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
   position: relative;
   margin: auto;
-   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
     &:focus {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0px 2px 10px 2px #22a6b3;
 }
 `
 
@@ -31,10 +32,11 @@ border-radius: 10px;
 display: flex;
 justify-content: center;
 align-items: center;
-margin-bottom: 25px;
+margin-bottom: 15px;
 `
 
 export const MovieName = styled.p`
 font-size: 20px;
 font-weight: 600;
+margin-bottom: 0;
 `
