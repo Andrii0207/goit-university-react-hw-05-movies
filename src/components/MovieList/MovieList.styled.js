@@ -24,7 +24,6 @@ export const WrapperCard = styled.div`
 overflow: hidden;
 padding: 10px;
 cursor: pointer;
-
 `
 
 export const Img = styled.img`
