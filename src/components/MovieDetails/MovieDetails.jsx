@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { getMoviesById, releaseDateUpdate, DEFAULT_IMAGE_PATH } from 'service';
@@ -65,7 +65,9 @@ export default function MovieDetails() {
             </Link>
           </li>
         </Wrapper>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </div>
     </CardWrapper>
   );

@@ -1,10 +1,12 @@
+import { lazy } from 'react';
 import Loader from 'components/Loader/Loader';
-import MovieList from 'components/MovieList/MovieList';
+// import MovieList from 'components/MovieList/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'service';
 import { Wrapper } from './Movies.styled';
+const MovieList = lazy(() => import('components/MovieList/MovieList'));
 
 export default function Movies() {
   const [movies, setMovies] = useState(null);

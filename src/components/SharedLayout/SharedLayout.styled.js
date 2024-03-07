@@ -8,7 +8,6 @@ padding-bottom: 50px;
 min-height: 100vh;
 height: 100%;
 `
-
 export const Header = styled.header`
   display: flex;
   justify-content: center;
@@ -19,26 +18,40 @@ export const Header = styled.header`
   box-shadow: 0px 2px 10px 1px #142952;
   height: 50px;
 `
-
 export const NavBar = styled.nav`
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: transparent;
 `
-
 export const StyledLink = styled(NavLink)`
   display: inline-flex;
   align-items: center;
-  margin: 20px;
+  margin: 15px;
   color: whitesmoke;
   font-size: 25px;
 
-  & svg {
-    margin: 7px;
-  }
-
-  &.active {
+  &.active { 
     color: darkorange;
   }
-`;
+  
+  &.active + svg {
+    color: darkorange;
+  }
+ `;
 
+export const WrapperListMenu = styled.ul`
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+`
+export const ListItemLeft = styled.li`
+display: flex;
+flex-direction: row-reverse;
+align-items: center;
+`
+export const ListItemRight = styled.li`
+display: flex;
+justify-content: center;
+align-items: center;
+`

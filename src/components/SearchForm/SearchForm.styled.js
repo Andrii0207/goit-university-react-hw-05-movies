@@ -20,12 +20,10 @@ border-color: orange;
 }
 }
 `
-
 export const Input = styled.input`
 border-radius: 10px;
 border-style: none;
-border-color: whitesmoke;
-outline-color: orange;
+outline-color: darkorange;
 border: 2px solid whitesmoke;
 width: 250px;
 background-color: transparent;
@@ -33,8 +31,8 @@ padding-left: 12px;
 color: whitesmoke;
 font-size: 20px;
 
-& :hover,
-& :focus {
-border-color: orange;
+&:active,
+&:focus {
+    border-color: darkorange;
 }
 `
